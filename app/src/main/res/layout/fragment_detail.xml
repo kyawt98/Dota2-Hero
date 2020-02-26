@@ -1,0 +1,575 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    xmlns:android="http://schemas.android.com/apk/res/android" />
+<androidx.cardview.widget.CardView
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:cardBackgroundColor="#271D20"
+    app:cardUseCompatPadding="true"
+    tools:context=".ui.DetailFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/img_hero"
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:layout_margin="16dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/txt_hero_name"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txt_hero_name"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:padding="5dp"
+            android:text="Abaddon"
+            android:textColor="#DCDEE1"
+            android:textSize="16sp"
+            app:layout_constraintLeft_toRightOf="@id/img_hero"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txt_hero_attack_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Melee"
+            android:padding="5dp"
+            android:textColor="#DCDEE1"
+            android:textSize="11sp"
+            app:layout_constraintLeft_toLeftOf="@id/txt_hero_name"
+            app:layout_constraintTop_toBottomOf="@id/txt_hero_name" />
+
+        <TextView
+            android:id="@+id/txt_dash"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="  -  "
+            android:textColor="#DCDEE1"
+            android:textSize="11sp"
+            app:layout_constraintBaseline_toBaselineOf="@id/txt_hero_attack_type"
+            app:layout_constraintLeft_toRightOf="@id/txt_hero_attack_type" />
+
+        <TextView
+            android:id="@+id/txt_hero_role"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Support, Carry, Durable"
+            android:textColor="#DCDEE1"
+            android:textSize="11sp"
+            android:padding="5dp"
+            app:layout_constraintBaseline_toBaselineOf="@id/txt_hero_attack_type"
+            app:layout_constraintLeft_toRightOf="@id/txt_dash" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/img_strength"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/strength"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintLeft_toLeftOf="@id/txt_hero_attack_type"
+            app:layout_constraintRight_toLeftOf="@id/img_agility"
+            app:layout_constraintTop_toBottomOf="@id/txt_hero_attack_type" />
+
+        <TextView
+            android:id="@+id/txt_strength_value"
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:text="23"
+            android:textAlignment="center"
+            android:textColor="#DCDEE1"
+            android:textSize="12sp"
+            app:layout_constraintLeft_toLeftOf="@id/img_strength"
+            app:layout_constraintTop_toBottomOf="@id/img_strength" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/img_agility"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/agility"
+            app:layout_constraintLeft_toRightOf="@id/img_strength"
+            app:layout_constraintRight_toLeftOf="@id/img_intelligent"
+            app:layout_constraintTop_toBottomOf="@id/txt_hero_attack_type" />
+
+        <TextView
+            android:id="@+id/txt_agility_value"
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:text="23"
+            android:textAlignment="center"
+            android:textColor="#DCDEE1"
+            android:textSize="12sp"
+            app:layout_constraintLeft_toLeftOf="@id/img_agility"
+            app:layout_constraintTop_toBottomOf="@id/img_agility" />
+
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/img_intelligent"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/intelligent"
+            app:layout_constraintLeft_toRightOf="@id/img_agility"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txt_hero_attack_type" />
+
+        <TextView
+            android:id="@+id/txt_intelligent_value"
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:text="23"
+            android:textAlignment="center"
+            android:textColor="#DCDEE1"
+            android:textSize="12sp"
+            app:layout_constraintLeft_toLeftOf="@id/img_intelligent"
+            app:layout_constraintTop_toBottomOf="@id/img_intelligent" />
+
+        <View
+            android:id="@+id/breakLine"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_margin="16dp"
+            android:background="#DCDEE1"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/img_hero"
+            app:layout_constraintVertical_bias="0.01" />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            android:layout_margin="16dp"
+            app:cardBackgroundColor="#271D20"
+            app:cardElevation="5dp"
+            app:cardUseCompatPadding="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/breakLine"
+            app:layout_constraintVertical_bias="0.01">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/txt_base_attack"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:text="Base  Attack"
+                    android:textAlignment="textStart"
+                    android:textAllCaps="true"
+                    android:textColor="#DCDEE1"
+                    android:textSize="12sp"
+                    app:layout_constraintHorizontal_chainStyle="spread_inside"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@id/txt_base_attack_value"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/txt_base_attack_value"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:textAlignment="textStart"
+                    android:textAllCaps="true"
+                    android:textColor="#DCDEE1"
+                    android:textSize="14sp"
+                    app:layout_constraintLeft_toRightOf="@id/txt_base_attack"
+                    app:layout_constraintRight_toRightOf="parent" />
+
+                <TextView
+                    android:id="@+id/txt_attack_range"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:text="Attack Range"
+                    android:textAlignment="textStart"
+                    android:textAllCaps="true"
+                    android:textColor="#DCDEE1"
+                    android:textSize="12sp"
+                    app:layout_constraintHorizontal_chainStyle="spread_inside"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@id/txt_attack_range_value"
+                    app:layout_constraintTop_toBottomOf="@id/txt_base_attack_value" />
+
+                <TextView
+                    android:id="@+id/txt_attack_range_value"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:text="150"
+                    android:textAlignment="textStart"
+                    android:textAllCaps="true"
+                    android:textColor="#DCDEE1"
+                    android:textSize="14sp"
+                    app:layout_constraintBaseline_toBaselineOf="@+id/txt_attack_range"
+                    app:layout_constraintLeft_toRightOf="@id/txt_attack_range"
+                    app:layout_constraintRight_toRightOf="parent" />
+
+                <TextView
+                    android:id="@+id/txt_attack_speed"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:text="Attack Speed"
+                    android:textAlignment="textStart"
+                    android:textAllCaps="true"
+                    android:textColor="#DCDEE1"
+                    android:textSize="12sp"
+                    app:layout_constraintHorizontal_chainStyle="spread_inside"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@id/txt_attack_speed_value"
+                    app:layout_constraintTop_toBottomOf="@id/txt_attack_range_value" />
+
+                <TextView
+                    android:id="@+id/txt_attack_speed_value"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:text="123"
+                    android:textAlignment="textStart"
+                    android:textAllCaps="true"
+                    android:textColor="#DCDEE1"
+                    android:textSize="14sp"
+                    app:layout_constraintBaseline_toBaselineOf="@+id/txt_attack_speed"
+                    app:layout_constraintLeft_toRightOf="@id/txt_attack_speed"
+                    app:layout_constraintRight_toRightOf="parent" />
+
+                <TextView
+                    android:id="@+id/txt_projectile"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:text="Projectile speed"
+                    android:textAlignment="textStart"
+                    android:textAllCaps="true"
+                    android:textColor="#DCDEE1"
+                    android:textSize="12sp"
+                    app:layout_constraintHorizontal_chainStyle="spread_inside"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@id/txt_projectile_value"
+                    app:layout_constraintTop_toBottomOf="@id/txt_attack_speed_value" />
+
+                <TextView
+                    android:id="@+id/txt_projectile_value"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:text="900"
+                    android:textAlignment="textStart"
+                    android:textAllCaps="true"
+                    android:textColor="#DCDEE1"
+                    android:textSize="14sp"
+                    app:layout_constraintBaseline_toBaselineOf="@+id/txt_projectile"
+                    app:layout_constraintLeft_toRightOf="@id/txt_projectile"
+                    app:layout_constraintRight_toRightOf="parent" />
+
+                <TextView
+                    android:id="@+id/txt_health"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:text="Health"
+                    android:textAlignment="textStart"
+                    android:textAllCaps="true"
+                    android:textColor="#DCDEE1"
+                    android:textSize="12sp"
+                    app:layout_constraintHorizontal_chainStyle="spread_inside"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@id/txt_health_value"
+                    app:layout_constraintTop_toBottomOf="@id/txt_projectile_value" />
+
+                <TextView
+                    android:id="@+id/txt_health_value"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:text="717"
+                    android:textAlignment="textStart"
+                    android:textAllCaps="true"
+                    android:textColor="#DCDEE1"
+                    android:textSize="14sp"
+                    app:layout_constraintBaseline_toBaselineOf="@+id/txt_health"
+                    app:layout_constraintLeft_toRightOf="@id/txt_health"
+                    app:layout_constraintRight_toRightOf="parent" />
+
+                <TextView
+                    android:id="@+id/txt_health_regen"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:text="Health Regen"
+                    android:textAlignment="textStart"
+                    android:textAllCaps="true"
+                    android:textColor="#DCDEE1"
+                    android:textSize="12sp"
+                    app:layout_constraintHorizontal_chainStyle="spread_inside"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@id/txt_health_regen_value"
+                    app:layout_constraintTop_toBottomOf="@id/txt_health_value" />
+
+                <TextView
+                    android:id="@+id/txt_health_regen_value"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:text="0"
+                    android:textAlignment="textStart"
+                    android:textAllCaps="true"
+                    android:textColor="#DCDEE1"
+                    android:textSize="14sp"
+                    app:layout_constraintBaseline_toBaselineOf="@+id/txt_health_regen"
+                    app:layout_constraintLeft_toRightOf="@id/txt_health_regen"
+                    app:layout_constraintRight_toRightOf="parent" />
+
+                <TextView
+                    android:id="@+id/txt_mana"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:text="Mana"
+                    android:textAlignment="textStart"
+                    android:textAllCaps="true"
+                    android:textColor="#DCDEE1"
+                    android:textSize="12sp"
+                    app:layout_constraintHorizontal_chainStyle="spread_inside"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@id/txt_mana_value"
+                    app:layout_constraintTop_toBottomOf="@id/txt_health_regen_value" />
+
+                <TextView
+                    android:id="@+id/txt_mana_value"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:text="291"
+                    android:textAlignment="textStart"
+                    android:textAllCaps="true"
+                    android:textColor="#DCDEE1"
+                    android:textSize="14sp"
+                    app:layout_constraintBaseline_toBaselineOf="@+id/txt_mana"
+                    app:layout_constraintLeft_toRightOf="@id/txt_mana"
+                    app:layout_constraintRight_toRightOf="parent" />
+
+                <TextView
+                    android:id="@+id/txt_mana_regen"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:text="Mana Regen"
+                    android:textAlignment="textStart"
+                    android:textAllCaps="true"
+                    android:textColor="#DCDEE1"
+                    android:textSize="12sp"
+                    app:layout_constraintHorizontal_chainStyle="spread_inside"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@id/txt_mana_regen_value"
+                    app:layout_constraintTop_toBottomOf="@id/txt_mana_value" />
+
+                <TextView
+                    android:id="@+id/txt_mana_regen_value"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:text="0"
+                    android:textAlignment="textStart"
+                    android:textAllCaps="true"
+                    android:textColor="#DCDEE1"
+                    android:textSize="14sp"
+                    app:layout_constraintBaseline_toBaselineOf="@+id/txt_mana_regen"
+                    app:layout_constraintLeft_toRightOf="@id/txt_mana_regen"
+                    app:layout_constraintRight_toRightOf="parent" />
+
+                <TextView
+                    android:id="@+id/txt_base_armor"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:text="Base Armor"
+                    android:textAlignment="textStart"
+                    android:textAllCaps="true"
+                    android:textColor="#DCDEE1"
+                    android:textSize="12sp"
+                    app:layout_constraintHorizontal_chainStyle="spread_inside"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@id/txt_base_armor_value"
+                    app:layout_constraintTop_toBottomOf="@id/txt_mana_regen_value" />
+
+                <TextView
+                    android:id="@+id/txt_base_armor_value"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:text="2.68"
+                    android:textAlignment="textStart"
+                    android:textAllCaps="true"
+                    android:textColor="#DCDEE1"
+                    android:textSize="14sp"
+                    app:layout_constraintBaseline_toBaselineOf="@+id/txt_base_armor"
+                    app:layout_constraintLeft_toRightOf="@id/txt_base_armor"
+                    app:layout_constraintRight_toRightOf="parent" />
+
+                <TextView
+                    android:id="@+id/txt_magic_resistance"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:text="Magic Resistance"
+                    android:textAlignment="textStart"
+                    android:textAllCaps="true"
+                    android:textColor="#DCDEE1"
+                    android:textSize="12sp"
+                    app:layout_constraintHorizontal_chainStyle="spread_inside"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@id/txt_magic_resistance_value"
+                    app:layout_constraintTop_toBottomOf="@id/txt_base_armor_value" />
+
+                <TextView
+                    android:id="@+id/txt_magic_resistance_value"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:text="25.5"
+                    android:textAlignment="textStart"
+                    android:textAllCaps="true"
+                    android:textColor="#DCDEE1"
+                    android:textSize="14sp"
+                    app:layout_constraintBaseline_toBaselineOf="@+id/txt_magic_resistance"
+                    app:layout_constraintLeft_toRightOf="@id/txt_magic_resistance"
+                    app:layout_constraintRight_toRightOf="parent" />
+
+                <TextView
+                    android:id="@+id/txt_move_speed"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:text="Move Speed"
+                    android:textAlignment="textStart"
+                    android:textAllCaps="true"
+                    android:textColor="#DCDEE1"
+                    android:textSize="12sp"
+                    app:layout_constraintHorizontal_chainStyle="spread_inside"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@id/txt_move_speed_value"
+                    app:layout_constraintTop_toBottomOf="@id/txt_magic_resistance_value" />
+
+                <TextView
+                    android:id="@+id/txt_move_speed_value"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:text="325"
+                    android:textAlignment="textStart"
+                    android:textAllCaps="true"
+                    android:textColor="#DCDEE1"
+                    android:textSize="14sp"
+                    app:layout_constraintBaseline_toBaselineOf="@+id/txt_move_speed"
+                    app:layout_constraintLeft_toRightOf="@id/txt_move_speed"
+                    app:layout_constraintRight_toRightOf="parent" />
+
+                <TextView
+                    android:id="@+id/txt_turn_speed"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:text="Turn Speed"
+                    android:textAlignment="textStart"
+                    android:textAllCaps="true"
+                    android:textColor="#DCDEE1"
+                    android:textSize="12sp"
+                    app:layout_constraintHorizontal_chainStyle="spread_inside"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@id/txt_turn_speed_value"
+                    app:layout_constraintTop_toBottomOf="@id/txt_move_speed_value" />
+
+                <TextView
+                    android:id="@+id/txt_turn_speed_value"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:text="0.5"
+                    android:textAlignment="textStart"
+                    android:textAllCaps="true"
+                    android:textColor="#DCDEE1"
+                    android:textSize="14sp"
+                    app:layout_constraintBaseline_toBaselineOf="@+id/txt_turn_speed"
+                    app:layout_constraintLeft_toRightOf="@id/txt_turn_speed"
+                    app:layout_constraintRight_toRightOf="parent" />
+
+                <TextView
+                    android:id="@+id/txt_no_of_leg"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:text="Turn Speed"
+                    android:textAlignment="textStart"
+                    android:textAllCaps="true"
+                    android:textColor="#DCDEE1"
+                    android:textSize="12sp"
+                    app:layout_constraintHorizontal_chainStyle="spread_inside"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@id/txt_no_of_leg_value"
+                    app:layout_constraintTop_toBottomOf="@id/txt_turn_speed_value" />
+
+                <TextView
+                    android:id="@+id/txt_no_of_leg_value"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:text="0.5"
+                    android:textAlignment="textStart"
+                    android:textAllCaps="true"
+                    android:textColor="#DCDEE1"
+                    android:textSize="14sp"
+                    app:layout_constraintBaseline_toBaselineOf="@+id/txt_no_of_leg"
+                    app:layout_constraintLeft_toRightOf="@id/txt_no_of_leg"
+                    app:layout_constraintRight_toRightOf="parent" />
+
+                <TextView
+                    android:id="@+id/txt_cm_enable"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:text="CM Enabled"
+                    android:textAlignment="textStart"
+                    android:textAllCaps="true"
+                    android:textColor="#DCDEE1"
+                    android:textSize="12sp"
+                    app:layout_constraintHorizontal_chainStyle="spread_inside"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@id/txt_cm_enable_value"
+                    app:layout_constraintTop_toBottomOf="@id/txt_no_of_leg_value" />
+
+                <TextView
+                    android:id="@+id/txt_cm_enable_value"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:text="Yes"
+                    android:textAlignment="textStart"
+                    android:textAllCaps="true"
+                    android:textColor="#DCDEE1"
+                    android:textSize="14sp"
+                    app:layout_constraintBaseline_toBaselineOf="@+id/txt_cm_enable"
+                    app:layout_constraintLeft_toRightOf="@id/txt_cm_enable"
+                    app:layout_constraintRight_toRightOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>
+</ScrollView>

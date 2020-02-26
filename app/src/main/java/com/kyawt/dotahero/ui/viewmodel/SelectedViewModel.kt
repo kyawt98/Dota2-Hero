@@ -7,11 +7,11 @@ import androidx.lifecycle.ViewModel
 import com.kyawt.dotahero.model.DotaHero
 
 class SelectedViewModel :ViewModel(){
-    private var detailHero  : MutableLiveData<List<DotaHero>> = MutableLiveData()
+    private var detailHero  : MutableLiveData<DotaHero> = MutableLiveData()
 
-    fun getDetailHero(): LiveData<List<DotaHero>> =detailHero
+    fun getDetailHero(): LiveData<DotaHero> =detailHero
 
-    fun setSelectedHero(hero: List<DotaHero>)
+    fun setSelectedHero(hero: DotaHero)
     {
         detailHero.value = hero
         Log.d("Selected Hero", hero.toString())

@@ -92,9 +92,7 @@ class HeroFragment : Fragment(), HeroAdapter.ClickListener {
         heroViewModel.setData()
     }
 
-    override fun Onclick(hero: List<DotaHero>) {
-
-
+    override fun Onclick(hero: DotaHero) {
             val selectedViewModel: SelectedViewModel =
                 ViewModelProviders.of(activity!!).get(SelectedViewModel::class.java)
             selectedViewModel.setSelectedHero(hero)

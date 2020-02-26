@@ -38,7 +38,7 @@ data class DotaHero(
     val id: Double,
     val img: String,
     val int_gain: Double,
-    val legs: Double,
+    val legs: String,
     val localized_name: String,
     val move_speed: Double,
     val name: String,

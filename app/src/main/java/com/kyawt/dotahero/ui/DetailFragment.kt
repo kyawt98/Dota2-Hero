@@ -39,8 +39,11 @@ class DetailFragment : Fragment() {
 
         selectedViewModel.getDetailHero().observe(viewLifecycleOwner, Observer<DotaHero> {
 
+            var img= it.img
+            val base_url = "https://api.opendota.com"
+
             Picasso.get()
-                .load(it.img)
+                .load("$base_url$img")
                 .placeholder(R.drawable.ic_dota2)
                 .into(img_hero)
             Log.d("Image", it.img.toString())

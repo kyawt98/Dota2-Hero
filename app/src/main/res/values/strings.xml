@@ -1,7 +1,9 @@
 <resources>
-    <string name="app_name">DotaHero</string>
+    <string name="app_name">VP GAME</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="heroes_in_professional_matches">Heroes in Professional Matches</string>
+    <string name="professional_matches">Professional Matches</string>
+    <string name="the_best_teams_with_ranking">The best Teams with Ranking</string>
 </resources>

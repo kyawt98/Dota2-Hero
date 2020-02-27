@@ -1,48 +1,42 @@
 package com.kyawt.dotahero.ui
 
-
 import android.os.Bundle
-import android.text.TextUtils
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import androidx.navigation.findNavController
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
 import com.kyawt.dotahero.R
-import com.kyawt.dotahero.adapter.HeroAdapter
+import com.kyawt.dotahero.adapter.MatchAdapter
 import com.kyawt.dotahero.model.DotaHero
-import com.kyawt.dotahero.ui.viewmodel.HeroViewModel
+import com.kyawt.dotahero.model.Matches
+import com.kyawt.dotahero.ui.viewmodel.MatchViewModel
 import com.kyawt.dotahero.ui.viewmodel.SelectedViewModel
-import kotlinx.android.synthetic.main.fragment_hero.*
-import kotlinx.android.synthetic.main.fragment_hero.view.*
-import kotlinx.android.synthetic.main.item_hero.*
+import kotlinx.android.synthetic.main.fragment_match.*
+import kotlinx.android.synthetic.main.fragment_match.view.*
 
 /**
  * A simple [Fragment] subclass.
  */
-class HeroFragment : Fragment(), HeroAdapter.ClickListener {
+class MatchFragment : Fragment() {
 
-    private var heroAdapter: HeroAdapter = HeroAdapter()
+    private var matchAdapter: MatchAdapter = MatchAdapter()
     private lateinit var viewManager: RecyclerView.LayoutManager
-    private var heroViewModel: HeroViewModel = HeroViewModel()
+    private var matchViewModel: MatchViewModel = MatchViewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-//        return inflater.inflate(R.layout.fragment_hero, container, false)
-        heroViewModel =
-            ViewModelProviders.of(this).get(HeroViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_hero, container, false)
+        var matchViewModel =
+            ViewModelProviders.of(this).get(MatchViewModel::class.java)
+        val root = inflater.inflate(R.layout.fragment_match, container, false)
 
         var tabMatches = root.tab_matches
         tabMatches.setOnClickListener { view: View ->
@@ -77,64 +71,59 @@ class HeroFragment : Fragment(), HeroAdapter.ClickListener {
         super.onViewCreated(view, savedInstanceState)
 
         viewManager = LinearLayoutManager(context)
-        recycler_hero.adapter = heroAdapter
-        recycler_hero.layoutManager = viewManager
+        recycler_matches.adapter = matchAdapter
+        recycler_matches.layoutManager = viewManager
 
-        heroAdapter.setOnClickListener(this)
+//        matchAdapter.setOnClickListener(this)
         observeViewModel()
     }
 
     fun observeViewModel() {
 
-        heroViewModel = ViewModelProviders.of(this)
-            .get(HeroViewModel::class.java)
+        matchViewModel = ViewModelProviders.of(this)
+            .get(MatchViewModel::class.java)
 
-        heroViewModel.getError().observe(viewLifecycleOwner, Observer<Boolean> { isError ->
+        matchViewModel.getError().observe(viewLifecycleOwner, Observer<Boolean> { isError ->
             if (isError) {
                 LoadingBar.visibility = View.GONE
                 txtErrorMessage.visibility = View.VISIBLE
             }
         })
 
-        heroViewModel.getResult().observe(viewLifecycleOwner, Observer<List<DotaHero>> { result ->
+        matchViewModel.getResult().observe(viewLifecycleOwner, Observer<List<Matches>> { result ->
             LoadingBar.visibility = View.GONE
-            recycler_hero.visibility = View.VISIBLE
-            heroAdapter.updateData(result)
-
-            Log.d("Image", result.toString())
+            recycler_matches.visibility = View.VISIBLE
+            matchAdapter.updateData(result)
         })
 
-        heroViewModel.getLoading().observe(viewLifecycleOwner, Observer<Boolean> { isLoading ->
+        matchViewModel.getLoading().observe(viewLifecycleOwner, Observer<Boolean> { isLoading ->
             LoadingBar.visibility = if (isLoading) View.VISIBLE else View.INVISIBLE
             if (isLoading) {
                 LoadingBar.visibility = View.VISIBLE
-                recycler_hero.visibility = View.GONE
+                recycler_matches.visibility = View.GONE
             }
         })
 
-        heroViewModel.setData()
+        matchViewModel.setData()
     }
 
     override fun onResume() {
         super.onResume()
-        heroViewModel.setData()
+        matchViewModel.setData()
     }
 
-    override fun Onclick(hero: DotaHero) {
-            val selectedViewModel: SelectedViewModel =
-                ViewModelProviders.of(activity!!).get(SelectedViewModel::class.java)
-            selectedViewModel.setSelectedHero(hero)
-            Log.d("Hero", hero.toString())
-            activity!!.supportFragmentManager
-                .beginTransaction()
-                .replace(R.id.screen_container, DetailFragment())
-                .addToBackStack(null) //when pressing back key
-                .commit()
-
-//        Toast.makeText(context,selectedViewModel.getDetailHero().value.toString(),Toast.LENGTH_LONG).show()
-        }
+//    override fun Onclick(hero: DotaHero) {
+//        val selectedViewModel: SelectedViewModel =
+//            ViewModelProviders.of(activity!!).get(SelectedViewModel::class.java)
+//        selectedViewModel.setSelectedHero(hero)
+//        Log.d("Hero", hero.toString())
+//        activity!!.supportFragmentManager
+//            .beginTransaction()
+//            .replace(R.id.screen_container, DetailFragment())
+//            .addToBackStack(null) //when pressing back key
+//            .commit()
+//
+////        Toast.makeText(context,selectedViewModel.getDetailHero().value.toString(),Toast.LENGTH_LONG).show()
+//    }
 
 }
-
-
-

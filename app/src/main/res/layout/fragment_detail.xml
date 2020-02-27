@@ -6,11 +6,10 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
     xmlns:android="http://schemas.android.com/apk/res/android" />
 <androidx.cardview.widget.CardView
-
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:cardBackgroundColor="#271D20"
-    app:cardUseCompatPadding="true"
+    app:cardBackgroundColor="#1F2E40"
+    app:cardUseCompatPadding="false"
     tools:context=".ui.DetailFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -19,18 +18,19 @@
 
         <ImageView
             android:id="@+id/img_hero"
-            android:layout_width="130dp"
-            android:layout_height="130dp"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
             android:layout_margin="16dp"
+            android:scaleType="centerCrop"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toLeftOf="@id/txt_hero_name"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/txt_hero_name"
-            android:layout_width="100dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="16dp"
+            android:layout_margin="14dp"
             android:padding="5dp"
             android:text="Abaddon"
             android:textColor="#DCDEE1"
@@ -66,7 +66,7 @@
             android:text="Support, Carry, Durable"
             android:textColor="#DCDEE1"
             android:textSize="11sp"
-            android:padding="5dp"
+            android:padding="2dp"
             app:layout_constraintBaseline_toBaselineOf="@id/txt_hero_attack_type"
             app:layout_constraintLeft_toRightOf="@id/txt_dash" />
 
@@ -173,14 +173,14 @@
                     android:textAllCaps="true"
                     android:textColor="#DCDEE1"
                     android:textSize="12sp"
-                    app:layout_constraintHorizontal_chainStyle="spread_inside"
+                    app:layout_constraintHorizontal_chainStyle="packed"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toLeftOf="@id/txt_base_attack_value"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
                     android:id="@+id/txt_base_attack_value"
-                    android:layout_width="150dp"
+                    android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:padding="5dp"
                     android:textAlignment="textStart"
@@ -200,14 +200,14 @@
                     android:textAllCaps="true"
                     android:textColor="#DCDEE1"
                     android:textSize="12sp"
-                    app:layout_constraintHorizontal_chainStyle="spread_inside"
+                    app:layout_constraintHorizontal_chainStyle="packed"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toLeftOf="@id/txt_attack_range_value"
                     app:layout_constraintTop_toBottomOf="@id/txt_base_attack_value" />
 
                 <TextView
                     android:id="@+id/txt_attack_range_value"
-                    android:layout_width="150dp"
+                    android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:padding="5dp"
                     android:textAlignment="textStart"
@@ -228,14 +228,14 @@
                     android:textAllCaps="true"
                     android:textColor="#DCDEE1"
                     android:textSize="12sp"
-                    app:layout_constraintHorizontal_chainStyle="spread_inside"
+                    app:layout_constraintHorizontal_chainStyle="packed"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toLeftOf="@id/txt_attack_speed_value"
                     app:layout_constraintTop_toBottomOf="@id/txt_attack_range_value" />
 
                 <TextView
                     android:id="@+id/txt_attack_speed_value"
-                    android:layout_width="150dp"
+                    android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:padding="5dp"
                     android:textAlignment="textStart"
@@ -256,14 +256,14 @@
                     android:textAllCaps="true"
                     android:textColor="#DCDEE1"
                     android:textSize="12sp"
-                    app:layout_constraintHorizontal_chainStyle="spread_inside"
+                    app:layout_constraintHorizontal_chainStyle="packed"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toLeftOf="@id/txt_projectile_value"
                     app:layout_constraintTop_toBottomOf="@id/txt_attack_speed_value" />
 
                 <TextView
                     android:id="@+id/txt_projectile_value"
-                    android:layout_width="150dp"
+                    android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:padding="5dp"
                     android:textAlignment="textStart"
@@ -284,14 +284,14 @@
                     android:textAllCaps="true"
                     android:textColor="#DCDEE1"
                     android:textSize="12sp"
-                    app:layout_constraintHorizontal_chainStyle="spread_inside"
+                    app:layout_constraintHorizontal_chainStyle="packed"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toLeftOf="@id/txt_health_value"
                     app:layout_constraintTop_toBottomOf="@id/txt_projectile_value" />
 
                 <TextView
                     android:id="@+id/txt_health_value"
-                    android:layout_width="150dp"
+                    android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:padding="5dp"
                     android:textAlignment="textStart"
@@ -312,14 +312,14 @@
                     android:textAllCaps="true"
                     android:textColor="#DCDEE1"
                     android:textSize="12sp"
-                    app:layout_constraintHorizontal_chainStyle="spread_inside"
+                    app:layout_constraintHorizontal_chainStyle="packed"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toLeftOf="@id/txt_health_regen_value"
                     app:layout_constraintTop_toBottomOf="@id/txt_health_value" />
 
                 <TextView
                     android:id="@+id/txt_health_regen_value"
-                    android:layout_width="150dp"
+                    android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:padding="5dp"
                     android:textAlignment="textStart"
@@ -340,14 +340,14 @@
                     android:textAllCaps="true"
                     android:textColor="#DCDEE1"
                     android:textSize="12sp"
-                    app:layout_constraintHorizontal_chainStyle="spread_inside"
+                    app:layout_constraintHorizontal_chainStyle="packed"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toLeftOf="@id/txt_mana_value"
                     app:layout_constraintTop_toBottomOf="@id/txt_health_regen_value" />
 
                 <TextView
                     android:id="@+id/txt_mana_value"
-                    android:layout_width="150dp"
+                    android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:padding="5dp"
                     android:textAlignment="textStart"
@@ -368,14 +368,14 @@
                     android:textAllCaps="true"
                     android:textColor="#DCDEE1"
                     android:textSize="12sp"
-                    app:layout_constraintHorizontal_chainStyle="spread_inside"
+                    app:layout_constraintHorizontal_chainStyle="packed"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toLeftOf="@id/txt_mana_regen_value"
                     app:layout_constraintTop_toBottomOf="@id/txt_mana_value" />
 
                 <TextView
                     android:id="@+id/txt_mana_regen_value"
-                    android:layout_width="150dp"
+                    android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:padding="5dp"
                     android:textAlignment="textStart"
@@ -396,14 +396,14 @@
                     android:textAllCaps="true"
                     android:textColor="#DCDEE1"
                     android:textSize="12sp"
-                    app:layout_constraintHorizontal_chainStyle="spread_inside"
+                    app:layout_constraintHorizontal_chainStyle="packed"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toLeftOf="@id/txt_base_armor_value"
                     app:layout_constraintTop_toBottomOf="@id/txt_mana_regen_value" />
 
                 <TextView
                     android:id="@+id/txt_base_armor_value"
-                    android:layout_width="150dp"
+                    android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:padding="5dp"
                     android:textAlignment="textStart"
@@ -424,14 +424,14 @@
                     android:textAllCaps="true"
                     android:textColor="#DCDEE1"
                     android:textSize="12sp"
-                    app:layout_constraintHorizontal_chainStyle="spread_inside"
+                    app:layout_constraintHorizontal_chainStyle="packed"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toLeftOf="@id/txt_magic_resistance_value"
                     app:layout_constraintTop_toBottomOf="@id/txt_base_armor_value" />
 
                 <TextView
                     android:id="@+id/txt_magic_resistance_value"
-                    android:layout_width="150dp"
+                    android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:padding="5dp"
                     android:textAlignment="textStart"
@@ -452,14 +452,14 @@
                     android:textAllCaps="true"
                     android:textColor="#DCDEE1"
                     android:textSize="12sp"
-                    app:layout_constraintHorizontal_chainStyle="spread_inside"
+                    app:layout_constraintHorizontal_chainStyle="packed"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toLeftOf="@id/txt_move_speed_value"
                     app:layout_constraintTop_toBottomOf="@id/txt_magic_resistance_value" />
 
                 <TextView
                     android:id="@+id/txt_move_speed_value"
-                    android:layout_width="150dp"
+                    android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:padding="5dp"
                     android:textAlignment="textStart"
@@ -480,14 +480,14 @@
                     android:textAllCaps="true"
                     android:textColor="#DCDEE1"
                     android:textSize="12sp"
-                    app:layout_constraintHorizontal_chainStyle="spread_inside"
+                    app:layout_constraintHorizontal_chainStyle="packed"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toLeftOf="@id/txt_turn_speed_value"
                     app:layout_constraintTop_toBottomOf="@id/txt_move_speed_value" />
 
                 <TextView
                     android:id="@+id/txt_turn_speed_value"
-                    android:layout_width="150dp"
+                    android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:padding="5dp"
                     android:textAlignment="textStart"
@@ -508,14 +508,14 @@
                     android:textAllCaps="true"
                     android:textColor="#DCDEE1"
                     android:textSize="12sp"
-                    app:layout_constraintHorizontal_chainStyle="spread_inside"
+                    app:layout_constraintHorizontal_chainStyle="packed"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toLeftOf="@id/txt_no_of_leg_value"
                     app:layout_constraintTop_toBottomOf="@id/txt_turn_speed_value" />
 
                 <TextView
                     android:id="@+id/txt_no_of_leg_value"
-                    android:layout_width="150dp"
+                    android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:padding="5dp"
                     android:textAlignment="textStart"
@@ -536,14 +536,14 @@
                     android:textAllCaps="true"
                     android:textColor="#DCDEE1"
                     android:textSize="12sp"
-                    app:layout_constraintHorizontal_chainStyle="spread_inside"
+                    app:layout_constraintHorizontal_chainStyle="packed"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toLeftOf="@id/txt_cm_enable_value"
                     app:layout_constraintTop_toBottomOf="@id/txt_no_of_leg_value" />
 
                 <TextView
                     android:id="@+id/txt_cm_enable_value"
-                    android:layout_width="150dp"
+                    android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:padding="5dp"
                     android:textAlignment="textStart"

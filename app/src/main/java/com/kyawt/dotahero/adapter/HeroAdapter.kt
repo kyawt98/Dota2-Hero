@@ -36,13 +36,15 @@ class HeroAdapter (var heroList:List<DotaHero> = ArrayList()): RecyclerView.Adap
         fun bind(hero:DotaHero){
             this.dotaHero = hero
 
+            var img= dotaHero.img
+            val base_url = "https://api.opendota.com"
             Picasso.get()
-                .load(dotaHero.img)
+                .load("$base_url$img")
                 .placeholder(R.drawable.ic_dota2)
                 .resize(100,60)
                 .into(itemView.imgHero)
 
-            Log.d("Icon", dotaHero.img.toString())
+            Log.d("Icon", "$base_url$img".toString())
             itemView.txtProBItem.text = dotaHero.null_pick.toString()
             itemView.txtProBanItem.text = dotaHero.pro_ban.toString()
             itemView.txtProPickItem.text = dotaHero.pro_pick.toString()

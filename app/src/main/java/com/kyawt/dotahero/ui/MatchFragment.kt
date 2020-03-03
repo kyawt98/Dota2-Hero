@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -13,17 +14,16 @@ import androidx.recyclerview.widget.RecyclerView
 
 import com.kyawt.dotahero.R
 import com.kyawt.dotahero.adapter.MatchAdapter
-import com.kyawt.dotahero.model.DotaHero
 import com.kyawt.dotahero.model.Matches
 import com.kyawt.dotahero.ui.viewmodel.MatchViewModel
-import com.kyawt.dotahero.ui.viewmodel.SelectedViewModel
+import com.kyawt.dotahero.ui.viewmodel.SelectedMatchesViewModel
 import kotlinx.android.synthetic.main.fragment_match.*
 import kotlinx.android.synthetic.main.fragment_match.view.*
 
 /**
  * A simple [Fragment] subclass.
  */
-class MatchFragment : Fragment() {
+class MatchFragment : Fragment(), MatchAdapter.ClickListener {
 
     private var matchAdapter: MatchAdapter = MatchAdapter()
     private lateinit var viewManager: RecyclerView.LayoutManager
@@ -112,18 +112,18 @@ class MatchFragment : Fragment() {
         matchViewModel.setData()
     }
 
-//    override fun Onclick(hero: DotaHero) {
-//        val selectedViewModel: SelectedViewModel =
-//            ViewModelProviders.of(activity!!).get(SelectedViewModel::class.java)
-//        selectedViewModel.setSelectedHero(hero)
-//        Log.d("Hero", hero.toString())
-//        activity!!.supportFragmentManager
-//            .beginTransaction()
-//            .replace(R.id.screen_container, DetailFragment())
-//            .addToBackStack(null) //when pressing back key
-//            .commit()
-//
-////        Toast.makeText(context,selectedViewModel.getDetailHero().value.toString(),Toast.LENGTH_LONG).show()
-//    }
+    override fun Onclick(matches: Matches) {
+        val selectMatchesViewModel: SelectedMatchesViewModel =
+            ViewModelProviders.of(activity!!).get(SelectedMatchesViewModel::class.java)
+        selectMatchesViewModel.setSelectedMatches(matches)
+        Log.d("Matches", matches.toString())
+        activity!!.supportFragmentManager
+            .beginTransaction()
+            .replace(R.id.screen_container, DetailMatchesFragment())
+            .addToBackStack(null) //when pressing back key
+            .commit()
+
+        Toast.makeText(context,selectMatchesViewModel.getDetailMatches().value.toString(),Toast.LENGTH_LONG).show()
+ }
 
 }

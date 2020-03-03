@@ -53,7 +53,7 @@ class TeamAdapter (var teamList:List<Teams> = ArrayList()): RecyclerView.Adapter
                     .into(itemView?.imgTeam)
             }
 
-            if (teams.name == null || teams.name.isEmpty() || teams.wins > 100) {
+            if (teams.name == null || teams.name.isEmpty()) {
 
                 itemView.txtNameItem?.text = "Unknown"
                 itemView.txtWinItem?.text = teams?.wins.toString()

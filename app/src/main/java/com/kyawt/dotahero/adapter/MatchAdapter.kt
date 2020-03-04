@@ -9,11 +9,13 @@ import androidx.recyclerview.widget.RecyclerView
 import com.kyawt.dotahero.R
 import com.kyawt.dotahero.model.DotaHero
 import com.kyawt.dotahero.model.Matches
+import com.kyawt.dotahero.model.ProPlayer
+import com.kyawt.dotahero.model.Teams
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.item_hero.view.*
 import kotlinx.android.synthetic.main.item_matches.view.*
 
-class MatchAdapter (var matchList:List<Matches> = ArrayList()): RecyclerView.Adapter<MatchAdapter.MatchViewHolder>(){
+class MatchAdapter (var matchList:List<Matches> = ArrayList(), var playerList:List<ProPlayer> =ArrayList(), var teamList:List<Teams> =ArrayList()): RecyclerView.Adapter<MatchAdapter.MatchViewHolder>(){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MatchViewHolder {
         var view = LayoutInflater.from(parent.context).inflate(R.layout.item_matches,parent,false)
@@ -54,6 +56,16 @@ class MatchAdapter (var matchList:List<Matches> = ArrayList()): RecyclerView.Ada
 
     fun updateData(matchList: List<Matches>){
         this.matchList = matchList
+        notifyDataSetChanged()
+    }
+
+    fun updatePlayerData(playerList: List<ProPlayer>){
+        this.playerList = playerList
+        notifyDataSetChanged()
+    }
+
+    fun updateTeamData(teamList: List<Teams>){
+        this.teamList = teamList
         notifyDataSetChanged()
     }
 

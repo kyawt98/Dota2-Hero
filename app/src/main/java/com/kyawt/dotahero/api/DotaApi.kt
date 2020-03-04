@@ -1,6 +1,7 @@
 package com.kyawt.dotahero.api
 import com.kyawt.dotahero.model.DotaHero
 import com.kyawt.dotahero.model.Matches
+import com.kyawt.dotahero.model.ProPlayer
 import com.kyawt.dotahero.model.Teams
 import retrofit2.Call
 import retrofit2.Retrofit
@@ -34,4 +35,7 @@ class DotaApi {
         return dotaInterface.getProTeam()
     }
 
+    fun getPlayerResults():Call<List<ProPlayer>>{
+        return dotaInterface.getProPlayer()
+    }
 }

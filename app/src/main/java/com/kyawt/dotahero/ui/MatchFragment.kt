@@ -15,6 +15,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.kyawt.dotahero.R
 import com.kyawt.dotahero.adapter.MatchAdapter
 import com.kyawt.dotahero.model.Matches
+import com.kyawt.dotahero.model.ProPlayer
+import com.kyawt.dotahero.model.Teams
 import com.kyawt.dotahero.ui.viewmodel.MatchViewModel
 import com.kyawt.dotahero.ui.viewmodel.SelectedMatchesViewModel
 import kotlinx.android.synthetic.main.fragment_match.*
@@ -25,7 +27,9 @@ import kotlinx.android.synthetic.main.fragment_match.view.*
  */
 class MatchFragment : Fragment(), MatchAdapter.ClickListener {
 
-    private var matchAdapter: MatchAdapter = MatchAdapter()
+    lateinit var matchAdapter: MatchAdapter
+//    private var playerList: List<ProPlayer> = ArrayList()
+//    private var teamList: List<Teams> = ArrayList()
     private lateinit var viewManager: RecyclerView.LayoutManager
     private var matchViewModel: MatchViewModel = MatchViewModel()
 
@@ -69,12 +73,12 @@ class MatchFragment : Fragment(), MatchAdapter.ClickListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        matchAdapter = MatchAdapter()
         viewManager = LinearLayoutManager(context)
         recycler_matches.adapter = matchAdapter
         recycler_matches.layoutManager = viewManager
 
-//        matchAdapter.setOnClickListener(this)
+        matchAdapter.setOnClickListener(this)
         observeViewModel()
     }
 

@@ -28,8 +28,6 @@ import kotlinx.android.synthetic.main.fragment_match.view.*
 class MatchFragment : Fragment(), MatchAdapter.ClickListener {
 
     lateinit var matchAdapter: MatchAdapter
-//    private var playerList: List<ProPlayer> = ArrayList()
-//    private var teamList: List<Teams> = ArrayList()
     private lateinit var viewManager: RecyclerView.LayoutManager
     private var matchViewModel: MatchViewModel = MatchViewModel()
 
@@ -74,7 +72,7 @@ class MatchFragment : Fragment(), MatchAdapter.ClickListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         matchAdapter = MatchAdapter()
-        viewManager = LinearLayoutManager(context)
+        viewManager = LinearLayoutManager(activity)
         recycler_matches.adapter = matchAdapter
         recycler_matches.layoutManager = viewManager
 
@@ -120,14 +118,13 @@ class MatchFragment : Fragment(), MatchAdapter.ClickListener {
         val selectMatchesViewModel: SelectedMatchesViewModel =
             ViewModelProviders.of(activity!!).get(SelectedMatchesViewModel::class.java)
         selectMatchesViewModel.setSelectedMatches(matches)
-        Log.d("Matches", matches.toString())
+//        Log.d("Matches", matches.toString())
         activity!!.supportFragmentManager
             .beginTransaction()
             .replace(R.id.screen_container, DetailMatchesFragment())
             .addToBackStack(null) //when pressing back key
             .commit()
-
-        Toast.makeText(context,selectMatchesViewModel.getDetailMatches().value.toString(),Toast.LENGTH_LONG).show()
+//        Toast.makeText(context,selectMatchesViewModel.getDetailMatches().value.toString(),Toast.LENGTH_LONG).show()
  }
 
 }

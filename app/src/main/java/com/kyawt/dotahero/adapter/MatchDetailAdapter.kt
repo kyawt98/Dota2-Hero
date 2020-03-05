@@ -1,25 +1,20 @@
 package com.kyawt.dotahero.adapter
-
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.os.persistableBundleOf
 import androidx.recyclerview.widget.RecyclerView
 import com.kyawt.dotahero.R
-import com.kyawt.dotahero.model.DotaHero
 import com.kyawt.dotahero.model.Matches
 import com.kyawt.dotahero.model.ProPlayer
 import com.kyawt.dotahero.model.Teams
-import com.squareup.picasso.Picasso
-import kotlinx.android.synthetic.main.item_hero.view.*
 import kotlinx.android.synthetic.main.item_matches.view.*
 
-class MatchAdapter (var matchList:List<Matches> = ArrayList(), var playerList:List<ProPlayer> =ArrayList(), var teamList:List<Teams> =ArrayList()): RecyclerView.Adapter<MatchAdapter.MatchViewHolder>(){
+class MatchDetailAdapter (var matchList:List<Matches> = ArrayList(), var playerList:List<ProPlayer> =ArrayList(), var teamList:List<Teams> =ArrayList()): RecyclerView.Adapter<MatchDetailAdapter.MatchDetailViewHolder>(){
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MatchViewHolder {
-        var view = LayoutInflater.from(parent.context).inflate(R.layout.item_matches,parent,false)
-        return MatchViewHolder(view)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MatchDetailViewHolder {
+        var view = LayoutInflater.from(parent.context).inflate(R.layout.item_winner,parent,false)
+        return MatchDetailViewHolder(view)
     }
 
     override fun getItemCount(): Int {
@@ -30,11 +25,11 @@ class MatchAdapter (var matchList:List<Matches> = ArrayList(), var playerList:Li
         Log.d("Result", matchList.size.toString())
     }
 
-    override fun onBindViewHolder(holder: MatchViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: MatchDetailViewHolder, position: Int) {
         holder.bind(matchList.get(position))
     }
 
-    inner class MatchViewHolder(itemView : View): RecyclerView.ViewHolder(itemView), View.OnClickListener{
+    inner class MatchDetailViewHolder(itemView : View): RecyclerView.ViewHolder(itemView), View.OnClickListener{
 
         private lateinit var matches:Matches
 //        private var view:View = itemView
